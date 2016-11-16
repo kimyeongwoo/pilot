@@ -16,7 +16,7 @@ public class Ex01Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		System.out.println(session.getAttribute("msg2"));
-		RequestDispatcher rd=request.getRequestDispatcher("main.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("ex01.jsp");
 		rd.forward(request, response);
 	}
 
