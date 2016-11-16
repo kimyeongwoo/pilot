@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,22 +15,36 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		ArrayList list = (ArrayList)request.getAttribute("alist");
+<%
+	ArrayList list = (ArrayList)request.getAttribute("alist");
 	
-		for(int i=0; i<list.size(); i++){
+	for(int i=0; i<list.size(); i++){
 	
-			GuestDto dto = (GuestDto)list.get(i);
-			
-			out.print(dto.getSabun());
-			out.print(",");
-			out.print(dto.getName());
-			out.print(",");
-			out.print(dto.getNalja());
-			out.print(",");
-			out.println(dto.getPay());
-			out.print("<br/>");
-		}
-	%>
+		GuestDto dto = (GuestDto)list.get(i);
+%>
+	<p>	
+<%
+		out.print(dto.getSabun());
+		out.print(",");
+		out.print(dto.getName());
+		out.print(",");
+		out.print(dto.getNalja());
+		out.print(",");
+		out.println(dto.getPay());
+	}
+%>
+	</p>
+	
+	
+	<hr/>
+	<p><a href="./add.do">add</a></p>
+	<hr/>
+	
+	
+	
+	<c:forEach items="${alist }" var="dto">
+		<p>${dto.sabun } / ${dto.name } / ${dto.nalja } / ${dto.pay }</p>
+	</c:forEach>
+	
 </body>
 </html>
