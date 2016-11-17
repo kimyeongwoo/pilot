@@ -18,6 +18,7 @@ public class DetailController extends HttpServlet {
 		
 		String param = request.getParameter("idx");
 		int sabun = Integer.parseInt(param);
+		
 		GuestDao dao = null;
 		
 		try {

@@ -43,7 +43,12 @@
 	
 	
 	<c:forEach items="${alist }" var="dto">
+		<div class="row">
+	
 		<p>${dto.sabun } / ${dto.name } / ${dto.nalja } / ${dto.pay }</p>
+		<a href="./detail.do?idx=${dto.sabun }">${dto.sabun }번 상세보기</a>
+		
+		</div>
 	</c:forEach>
 	
 </body>
