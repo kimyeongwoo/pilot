@@ -62,6 +62,33 @@ public class GuestDao {
 		
 		
 		return list;
-	}
+	}//selectall
+	
+	
+	public GuestDto selectOne(int sabun) throws SQLException{
+		
+		GuestDto dto = null;
+		String sql="select * from guest where sabun=?";
+		
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setInt(1, sabun);
+		rs=pstmt.executeQuery();		
+		
+		if(rs.next()){
+			dto = new GuestDto();
+			
+			dto.setSabun(rs.getInt("sabun"));
+			dto.setName(rs.getString("name"));
+			dto.setNalja(rs.getDate("nalja"));
+			dto.setPay(rs.getInt("pay"));
+		}
+		
+		if(rs!=null)rs.close();
+		if(pstmt!=null)pstmt.close();
+		if(conn!=null)conn.close();
+		
+		return dto;
+	}//selectone
+	
 	
 }
